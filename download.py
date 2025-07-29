@@ -93,7 +93,6 @@ def get_total_download_size(bucketobj):
 def get_list_of_logs():
   complete_log_array=[]
   log_names = []
-  complete_log = "\n"
   check_bucket_exists()
   download_path = get_download_path(component)+service_name+"_"+date
   if component == "comsdr":
@@ -102,7 +101,7 @@ def get_list_of_logs():
      download_key = "paytmbank/prod/"+component+"/"+service_name+"/application/"+date+"/archive/"
   for object_summary in bucket.objects.filter(Prefix=download_key):
       complete_log_array.append(object_summary.key)
-  complete_log = complete_log.join(complete_log_array)
+  complete_log = "\n".join(complete_log_array)
   print(complete_log.replace(download_key, "")) 
   
 def download_s3_object():
