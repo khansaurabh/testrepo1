@@ -84,7 +84,7 @@ def get_total_download_size(bucketobj):
   for s3_object in bucketobj:
     try:
       download_size = download_size + s3_object.size
-    except Exception, e:
+    except Exception as e:
       return ("Size Calculation Exception")
   return (download_size)
 
@@ -154,12 +154,12 @@ def download_s3_object():
       else:
         try:
           bucket.download_file(s3_object.key,download_path+"/"+filename)
-          print ("File downloaded --- " + s3_object.key)
-        except Exception, e:
+          print("File downloaded --- " + s3_object.key)
+        except Exception as e:
           sys.exit("Couldn't download s3 object keys. Exception --- " + str(e))
 if download_job_type == "get-list":
   get_list_of_logs()
 elif download_job_type == "download-logs":
   download_s3_object()
 else:
-  print ("Nothing To do here ! You have not selected anything for donwload log job")
+  print("Nothing To do here ! You have not selected anything for donwload log job")

@@ -24,8 +24,8 @@ def deletedir(dir_path):
     dirpath = os.path.join(dir_path)
     if os.path.exists(dirpath) and os.path.isdir(dirpath):
         shutil.rmtree(dirpath)
-        print ("Directory Deleted")
+        print("Directory Deleted")
     else:
-        print ("Log Directory does not exist")
+        print("Log Directory does not exist")
 print(dir_path)
 deletedir(dir_path) 

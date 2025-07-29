@@ -42,7 +42,7 @@ def check_ssh_connection():
     if ssh:
       ssh.close()
     return True,"connection success"
-  except Exception, e:
+  except Exception as e:
     exception = "Unable to connect to the remote bastion server. Reason: "+str(e)
     return False,exception
 
